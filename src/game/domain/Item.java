@@ -1,5 +1,8 @@
 package game.domain;
 
+import lombok.Getter;
+
+@Getter
 public class Item {
     private final String name;
     private final String description;
@@ -11,19 +14,7 @@ public class Item {
         this.description = generateItemDescription();
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public int getRequiredSlots() {
-        return requiredSlots;
-    }
-
-    public String generateItemDescription() {
+    private String generateItemDescription() {
         return "The " + this.name + " item requires " + this.requiredSlots + " slot";
     }
 }

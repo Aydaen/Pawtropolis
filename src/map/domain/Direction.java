@@ -1,8 +1,11 @@
 package map.domain;
 
+import lombok.AllArgsConstructor;
+
 import java.util.Arrays;
 import java.util.Optional;
 
+@AllArgsConstructor
 public enum Direction {
     NORTH("north"),
     SOUTH("south"),
@@ -10,9 +13,6 @@ public enum Direction {
     WEST("west");
 
     private final String label;
-    Direction(String label) {
-        this.label = label;
-    }
 
     public static Optional<Direction> getDirectionByString(String string) {
         return Arrays.stream(Direction.values())

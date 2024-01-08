@@ -4,6 +4,8 @@ import game.command.Command;
 import game.command.EnumCommand;
 import game.console.InputController;
 import game.domain.Player;
+import lombok.Getter;
+import lombok.Setter;
 import map.domain.Room;
 import map.utils.RoomFactory;
 
@@ -11,12 +13,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-
+// TODO @NoArgsConstructor(access = AccessLevel.PRIVATE) ???
+@Getter
 public class GameController {
     private static GameController instance = null;
     private static final int DEFAULT_MAP_RECURSION_DEPTH = 3;
+    @Setter
     private Room currentRoom;
     private Player player;
+    @Setter
     private boolean gameEnded;
 
     private GameController() {
@@ -47,31 +52,9 @@ public class GameController {
             String[] splitInput = input.trim().split("\\s+");
             String commandName = splitInput[0].toLowerCase();
             List<String> parameters = new ArrayList<>(Arrays.asList(splitInput).subList(1, splitInput.length));
-            //TODO: maybe commandname e parameters come istanze del singleton per non passarle al command?
 
             Command command = EnumCommand.getCommandByString(commandName);
             command.execute(parameters);
         }
-    }
-
-    public Room getCurrentRoom() {
-        return currentRoom;
-    }
-
-    public void setCurrentRoom(Room currentRoom) {
-        this.currentRoom = currentRoom;
-    }
-
-    public Player getPlayer() {
-        return player;
-
-    }
-
-    public boolean isGameEnded() {
-        return gameEnded;
-    }
-
-    public void setGameEnded(boolean gameEnded) {
-        this.gameEnded = gameEnded;
     }
 }

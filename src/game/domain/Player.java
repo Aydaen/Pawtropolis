@@ -1,14 +1,17 @@
 package game.domain;
 
+import lombok.Getter;
+
 import java.util.Optional;
 
 public class Player {
     private static final int DEFAULT_LIFE_POINTS = 20;
+    @Getter
     private final String name;
     private int lifePoints;
     private final Bag bag;
 
-    public Player(String name){
+    public Player(String name) {
         this(name, DEFAULT_LIFE_POINTS);
     }
 
@@ -16,10 +19,6 @@ public class Player {
         this.name = name;
         this.lifePoints = lifePoints;
         bag = new Bag();
-    }
-
-    public String getName() {
-        return name;
     }
 
     public String getBagDescription() {
@@ -37,5 +36,4 @@ public class Player {
     public boolean removeItem(Item item) {
         return bag.removeItem(item);
     }
-
 }

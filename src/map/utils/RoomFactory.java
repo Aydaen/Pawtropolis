@@ -9,6 +9,7 @@ import map.domain.Room;
 
 import java.util.*;
 
+// TODO @NoArgsConstructor(access = AccessLevel.PRIVATE) ???
 public class RoomFactory {
     private static RoomFactory instance = null;
     private static final Random random = new Random();

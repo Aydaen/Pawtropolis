@@ -2,22 +2,17 @@ package map.domain;
 
 import animals.domain.Animal;
 import game.domain.Item;
+import lombok.AllArgsConstructor;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
+@AllArgsConstructor
 public class Room {
     private final String name;
     private final Set<Item> items;
     private final Set<Animal> animals;
     private final Map<Direction, Room> adjacentRooms;
-
-    public Room(String name, Set<Item> items, Set<Animal> animals, Map<Direction, Room> adjacentRooms) {
-        this.name = name;
-        this.items = items;
-        this.animals = animals;
-        this.adjacentRooms = adjacentRooms;
-    }
 
     public Optional<Item> getItemByName(String itemName) {
         return items.stream()
