@@ -8,6 +8,7 @@ import animals.domain.Tiger;
 import java.time.LocalDate;
 import java.util.*;
 
+// TODO @NoArgsConstructor(access = AccessLevel.PRIVATE) ???
 public class AnimalFactory {
     private static AnimalFactory instance = null;
     private static final Random random = new Random();

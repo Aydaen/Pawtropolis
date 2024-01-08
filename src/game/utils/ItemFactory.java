@@ -4,6 +4,7 @@ import game.domain.Item;
 
 import java.util.*;
 
+// TODO @NoArgsConstructor(access = AccessLevel.PRIVATE) ???
 public class ItemFactory {
     private static ItemFactory instance = null;
     private static final Random random = new Random();

@@ -3,6 +3,7 @@ package game.command;
 import game.GameController;
 import game.domain.Item;
 import game.domain.Player;
+import lombok.AllArgsConstructor;
 import map.domain.Room;
 import map.domain.Direction;
 
@@ -85,7 +86,7 @@ public enum EnumCommand implements Command {
             if (parameters.isEmpty()) {
                 System.out.println(gameController.getPlayer().getBagDescription());
             } else {
-                System.out.println(INVALID_INPUT);
+                System.out.println(INVALID_INPUT_MESSAGE);
             }
 
         }
@@ -96,7 +97,7 @@ public enum EnumCommand implements Command {
             if (parameters.isEmpty()) {
                 gameController.setGameEnded(true);
             } else {
-                System.out.println(INVALID_INPUT);
+                System.out.println(INVALID_INPUT_MESSAGE);
             }
 
         }
@@ -104,12 +105,12 @@ public enum EnumCommand implements Command {
     INVALID("") {
         @Override
         public void execute(List<String> parameters) {
-            System.out.println(INVALID_INPUT);
+            System.out.println(INVALID_INPUT_MESSAGE);
         }
     };
 
     private static final GameController gameController = GameController.getInstance();
-    public static final String INVALID_INPUT = "Invalid input";
+    public static final String INVALID_INPUT_MESSAGE = "Invalid input";
     private final String label;
 
     EnumCommand(String label) {
