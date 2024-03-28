@@ -8,7 +8,9 @@ public class Player {
     private static final int DEFAULT_LIFE_POINTS = 20;
     @Getter
     private final String name;
+    @Getter
     private int lifePoints;
+    @Getter
     private final Bag bag;
 
     public Player(String name){
@@ -20,6 +22,7 @@ public class Player {
         this.lifePoints = lifePoints;
         bag = new Bag();
     }
+
 
     public String getBagDescription() {
         return bag.toString();

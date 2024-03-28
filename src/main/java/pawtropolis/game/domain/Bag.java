@@ -1,13 +1,17 @@
 package pawtropolis.game.domain;
 
+import lombok.Getter;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class Bag {
+    @Getter
     private final List<Item> itemList;
     private static final int DEFAULT_AVAILABLE_SLOTS = 10;
+    @Getter
     private int availableSlots;
 
     public Bag(){
